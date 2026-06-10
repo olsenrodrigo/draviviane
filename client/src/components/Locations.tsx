@@ -75,14 +75,23 @@ export default function Locations() {
               className="mt-6 p-6 rounded-2xl border"
               style={{ borderColor: "rgba(155, 107, 122, 0.2)", backgroundColor: "rgba(247, 234, 240, 0.5)" }}
             >
-              <div className="flex items-start gap-3 mb-4">
+              <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: "#9B6B7A" }} />
                 <div>
                   <p className="font-bold mb-1" style={{ color: "#212529" }}>Clínica Dra. Viviane Vendramini</p>
-                  <p style={{ color: "#3C3C3C" }}>
-                    São Paulo / SP<br />
-                    <span className="text-sm" style={{ color: "#9B6B7A" }}>Endereço completo disponível no agendamento</span>
+                  <p className="text-sm leading-relaxed" style={{ color: "#3C3C3C" }}>
+                    Av. Marquês de São Vicente, 2219 — conj. 312<br />
+                    Água Branca — São Paulo / SP
                   </p>
+                  <a
+                    href="https://maps.google.com/?q=Av+Marques+de+Sao+Vicente+2219+Agua+Branca+Sao+Paulo+SP"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs mt-2 inline-block hover:underline"
+                    style={{ color: "#9B6B7A" }}
+                  >
+                    Ver no Google Maps →
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -95,16 +104,16 @@ export default function Locations() {
             className="rounded-2xl overflow-hidden shadow-lg border"
             style={{ borderColor: "rgba(155, 107, 122, 0.15)" }}
           >
-            <div
-              className="w-full flex items-center justify-center"
-              style={{ minHeight: "400px", backgroundColor: "#F7EAF0" }}
-            >
-              <div className="text-center p-8">
-                <MapPin className="w-16 h-16 mx-auto mb-4 opacity-30" style={{ color: "#9B6B7A" }} />
-                <p className="text-lg font-medium" style={{ color: "#2D1A28" }}>São Paulo / SP</p>
-                <p className="text-sm mt-2" style={{ color: "#3C3C3C" }}>Mapa disponível em breve</p>
-              </div>
-            </div>
+            <iframe
+              title="Localização Dra. Viviane Vendramini"
+              src="https://maps.google.com/maps?q=Av+Marques+de+Sao+Vicente+2219+Agua+Branca+Sao+Paulo+SP&output=embed"
+              width="100%"
+              height="420"
+              style={{ border: 0, display: "block" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </motion.div>
         </div>
       </div>

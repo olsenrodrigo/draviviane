@@ -41,7 +41,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
               style={{ backgroundColor: "rgba(155, 107, 122, 0.2)", borderColor: "rgba(155, 107, 122, 0.35)" }}
             >
               <span className="text-sm font-medium" style={{ color: "#F7EAF0" }}>
-                Saúde da Mulher • Ginecologia • Reprodução Humana
+                Saúde da Mulher • Ginecologia • Sexualidade • Fertilidade
               </span>
             </div>
 

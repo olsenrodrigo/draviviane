@@ -4,13 +4,13 @@ import { CheckCircle2 } from "lucide-react";
 export default function Services() {
   const services = [
     "Ginecologia",
-    "Reprodução Humana",
-    "Ultrassonografia Obstétrica",
-    "Ultrassonografia Transvaginal",
     "Sexualidade Feminina",
-    "Estética Íntima",
-    "Obstetrícia",
+    "Infertilidade",
+    "Harmonização Íntima",
+    "Cirurgia por Vídeo",
     "Contracepção (DIU)",
+    "Menopausa",
+    "Implantes Hormonais",
   ];
 
   return (

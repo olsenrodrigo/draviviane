@@ -7,7 +7,7 @@ export default function Treatments() {
     { icon: Scale, text: "Programas de emagrecimento supervisionado" },
     { icon: Zap, text: "Laser íntimo" },
     { icon: Stethoscope, text: "Ultrassonografia ginecológica" },
-    { icon: Stethoscope, text: "Ultrassonografia obstétrica" },
+    { icon: Stethoscope, text: "Infertilidade feminina" },
     { icon: Scissors, text: "Videolaparoscopia" },
     { icon: Scissors, text: "Histeroscopia" },
     { icon: Activity, text: "Tratamentos para sexualidade feminina" },

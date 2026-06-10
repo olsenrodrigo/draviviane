@@ -61,8 +61,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-bold mb-1" style={{ color: "#212529" }}>Localização</p>
-                  <p className="text-sm" style={{ color: "#3C3C3C" }}>
-                    São Paulo / SP<br />
+                  <p className="text-sm leading-relaxed" style={{ color: "#3C3C3C" }}>
+                    Av. Marquês de São Vicente, 2219 — conj. 312<br />
+                    Água Branca — São Paulo / SP<br />
                     <span style={{ color: "#9B6B7A" }}>Presencial e Online</span>
                   </p>
                 </div>
@@ -79,8 +80,17 @@ export default function Contact() {
                 <div>
                   <p className="font-bold mb-1" style={{ color: "#212529" }}>Agendamento</p>
                   <p className="text-sm" style={{ color: "#3C3C3C" }}>
-                    Via WhatsApp ou formulário<br />
-                    <span style={{ color: "#9B6B7A" }}>Retorno em breve</span>
+                    <a
+                      href="https://wa.me/5511991076188"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                      style={{ color: "#9B6B7A" }}
+                    >
+                      (11) 99107-6188
+                    </a>
+                    <br />
+                    Via WhatsApp ou formulário
                   </p>
                 </div>
               </div>
@@ -94,7 +104,7 @@ export default function Contact() {
                 <div>
                   <p className="font-bold mb-1" style={{ color: "#212529" }}>Instagram</p>
                   <a
-                    href="https://www.instagram.com/dravivianevendramini/"
+                    href="https://www.instagram.com/dravivianevendramini?igsh=eWhkc2RyNXV1aGw%3D&utm_source=qr"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm hover:underline"
