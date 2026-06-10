@@ -81,7 +81,7 @@ export default function About() {
               <img
                 src="/draviviane.jpg"
                 alt="Dra. Viviane Vendramini"
-                className="w-full object-cover object-top"
+                className="w-full object-cover object-center"
                 style={{ minHeight: "550px" }}
               />
             </div>
