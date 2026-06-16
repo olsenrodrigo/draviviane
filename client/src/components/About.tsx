@@ -8,7 +8,7 @@ export default function About() {
     { icon: Globe, text: "Estágio internacional em Segovia, Itália" },
     { icon: Award, text: "Especialização em Reprodução Humana" },
     { icon: BookOpen, text: "Certificações: Sírio Libanês, CETRUS e FMUSP" },
-    { icon: IdCard, text: "CRM 134036 • TEGO / FEBRASGO" },
+    { icon: IdCard, text: "CRM-SP 134.036 / RQE 51.931 • TEGO / FEBRASGO" },
   ];
 
   return (

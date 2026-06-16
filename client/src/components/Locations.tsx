@@ -80,7 +80,7 @@ export default function Locations() {
                 <div>
                   <p className="font-bold mb-1" style={{ color: "#212529" }}>Clínica Dra. Viviane Vendramini</p>
                   <p className="text-sm leading-relaxed" style={{ color: "#3C3C3C" }}>
-                    Av. Marquês de São Vicente, 2219 — conj. 312<br />
+                    Av. Marquês de São Vicente, 2219 — conj. 316<br />
                     Água Branca — São Paulo / SP
                   </p>
                   <a
