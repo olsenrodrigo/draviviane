@@ -142,7 +142,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 <h1 className="leading-tight mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  <span className="block font-bold" style={{ color: "#2D1A28", fontSize: "clamp(2.8rem, 6vw, 5.5rem)", lineHeight: 1.1 }}>
+                  <span className="block font-bold" style={{ color: "#6B4560", fontSize: "clamp(2.8rem, 6vw, 5.5rem)", lineHeight: 1.1 }}>
                     Saúde Feminina
                   </span>
                   <span className="block font-bold" style={{ color: "#B8964E", fontSize: "clamp(2.8rem, 6vw, 5.5rem)", lineHeight: 1.1 }}>

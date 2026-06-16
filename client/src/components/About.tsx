@@ -31,7 +31,7 @@ export default function About() {
             <h2
               className="font-bold mb-2 leading-tight"
               style={{
-                color: "#2D1A28",
+                color: "#6B4560",
                 fontFamily: "'Playfair Display', serif",
                 fontSize: "clamp(2rem, 4vw, 3.2rem)"
               }}
@@ -114,7 +114,7 @@ export default function About() {
             <div key={index} className="text-center">
               <div
                 className="text-2xl md:text-3xl font-bold mb-2"
-                style={{ color: "#2D1A28", fontFamily: "'Playfair Display', serif" }}
+                style={{ color: "#6B4560", fontFamily: "'Playfair Display', serif" }}
               >
                 {item.value}
               </div>
@@ -131,7 +131,7 @@ export default function About() {
         >
           <blockquote
             className="text-2xl md:text-3xl font-medium italic max-w-3xl mx-auto mb-8"
-            style={{ color: "#2D1A28", fontFamily: "'Playfair Display', serif" }}
+            style={{ color: "#6B4560", fontFamily: "'Playfair Display', serif" }}
           >
             "A prevenção é o maior gesto de amor-próprio."
           </blockquote>

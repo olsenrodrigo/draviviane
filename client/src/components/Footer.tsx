@@ -84,7 +84,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h5 className="font-semibold text-lg mb-4" style={{ color: "#2D1A28" }}>Links Rápidos</h5>
+            <h5 className="font-semibold text-lg mb-4" style={{ color: "#6B4560" }}>Links Rápidos</h5>
             <ul className="space-y-2 text-sm" style={{ color: "#6B5A48" }}>
               <li><a href="#hero" className="transition-colors hover:text-[#B8964E]">Início</a></li>
               <li><a href="#about" className="transition-colors hover:text-[#B8964E]">Sobre</a></li>
