@@ -38,8 +38,8 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-block px-4 py-2 rounded-full mb-6" style={{ backgroundColor: "#F7EAF0" }}>
-            <span className="text-sm font-medium" style={{ color: "#9B6B7A" }}>Dúvidas Frequentes</span>
+          <div className="inline-block px-4 py-2 rounded-full mb-6 border" style={{ backgroundColor: "rgba(184,150,78,0.08)", borderColor: "rgba(184,150,78,0.2)" }}>
+            <span className="text-sm font-medium" style={{ color: "#B8964E" }}>Dúvidas Frequentes</span>
           </div>
 
           <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: "#212529" }}>
@@ -61,12 +61,12 @@ export default function HowItWorks() {
               transition={{ delay: index * 0.08 }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               className="bg-white rounded-2xl p-6 shadow-lg border hover:shadow-xl transition-all"
-              style={{ borderColor: "rgba(155, 107, 122, 0.15)" }}
+              style={{ borderColor: "rgba(184,150,78,0.18)" }}
             >
               <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
-                style={{ backgroundColor: "#F7EAF0" }}
+                style={{ backgroundColor: "rgba(184,150,78,0.10)" }}
               >
-                <HelpCircle className="w-5 h-5" style={{ color: "#9B6B7A" }} />
+                <HelpCircle className="w-5 h-5" style={{ color: "#B8964E" }} />
               </div>
 
               <h4 className="text-lg font-bold mb-3" style={{ color: "#212529" }}>
