@@ -26,7 +26,7 @@ export default function Differentials() {
   ];
 
   return (
-    <section id="differentials" className="py-24" style={{ backgroundColor: "#F7EAF0" }}>
+    <section id="differentials" className="py-24" style={{ backgroundColor: "#FAF4EC" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -35,8 +35,8 @@ export default function Differentials() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="inline-block px-4 py-2 rounded-full mb-6" style={{ backgroundColor: "rgba(155, 107, 122, 0.15)" }}>
-              <span className="text-sm font-medium" style={{ color: "#2D1A28" }}>Por que escolher</span>
+            <div className="inline-block px-4 py-2 rounded-full mb-6 border" style={{ backgroundColor: "rgba(184,150,78,0.08)", borderColor: "rgba(184,150,78,0.2)" }}>
+              <span className="text-sm font-medium" style={{ color: "#B8964E" }}>Por que escolher</span>
             </div>
 
             <h3 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#212529" }}>
@@ -57,10 +57,10 @@ export default function Differentials() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-2xl p-8 shadow-sm border text-center"
-                style={{ borderColor: "rgba(155, 107, 122, 0.15)" }}
+                style={{ borderColor: "rgba(184,150,78,0.18)" }}
               >
                 <div className="mx-auto w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
-                  style={{ background: "linear-gradient(135deg, #9B6B7A 0%, #2D1A28 100%)" }}
+                  style={{ background: "linear-gradient(135deg, #B8964E 0%, #2D1A28 100%)" }}
                 >
                   <item.icon className="w-8 h-8 text-white" />
                 </div>

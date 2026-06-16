@@ -21,7 +21,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-24" style={{ backgroundColor: "#F7EAF0" }}>
+    <section id="faq" className="py-24" style={{ backgroundColor: "#FAF4EC" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -29,8 +29,8 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-block px-4 py-2 rounded-full mb-6" style={{ backgroundColor: "rgba(155, 107, 122, 0.15)" }}>
-            <span className="text-sm font-medium" style={{ color: "#2D1A28" }}>Depoimentos</span>
+          <div className="inline-block px-4 py-2 rounded-full mb-6 border" style={{ backgroundColor: "rgba(184,150,78,0.08)", borderColor: "rgba(184,150,78,0.2)" }}>
+            <span className="text-sm font-medium" style={{ color: "#B8964E" }}>Depoimentos</span>
           </div>
 
           <h3 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#212529" }}>
@@ -51,9 +51,9 @@ export default function FAQ() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className="bg-white rounded-2xl p-8 shadow-sm border relative"
-              style={{ borderColor: "rgba(155, 107, 122, 0.15)" }}
+              style={{ borderColor: "rgba(184,150,78,0.18)" }}
             >
-              <Quote className="w-8 h-8 mb-4 opacity-20" style={{ color: "#9B6B7A" }} />
+              <Quote className="w-8 h-8 mb-4 opacity-25" style={{ color: "#B8964E" }} />
 
               <p className="text-base leading-relaxed mb-6" style={{ color: "#3C3C3C" }}>
                 "{item.text}"
@@ -61,13 +61,13 @@ export default function FAQ() {
 
               <div className="flex items-center gap-1 mb-3">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-4 h-4 fill-current" style={{ color: "#9B6B7A" }} />
+                  <Star key={star} className="w-4 h-4 fill-current" style={{ color: "#B8964E" }} />
                 ))}
               </div>
 
               <div>
                 <p className="font-semibold text-sm" style={{ color: "#212529" }}>{item.name}</p>
-                <p className="text-xs" style={{ color: "#9B6B7A" }}>{item.detail}</p>
+                <p className="text-xs" style={{ color: "#B8964E" }}>{item.detail}</p>
               </div>
             </motion.div>
           ))}
@@ -79,17 +79,17 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mt-20 rounded-3xl p-12 text-center text-white"
-          style={{ background: "linear-gradient(135deg, #9B6B7A 0%, #2D1A28 100%)" }}
+          style={{ background: "linear-gradient(135deg, #B8964E 0%, #2D1A28 100%)" }}
         >
           <h4 className="text-2xl md:text-3xl font-bold mb-4 text-white">
             Comece agora a cuidar da sua saúde com quem entende você
           </h4>
-          <div className="flex flex-wrap justify-center gap-4 mb-4 text-lg" style={{ color: "#F7EAF0" }}>
+          <div className="flex flex-wrap justify-center gap-4 mb-4 text-lg" style={{ color: "#FAF4EC" }}>
             <span>Atendimento presencial e online</span>
             <span>|</span>
             <span>São Paulo / SP</span>
           </div>
-          <p className="text-base mb-8" style={{ color: "rgba(247, 234, 240, 0.8)" }}>
+          <p className="text-base mb-8" style={{ color: "rgba(250, 244, 236, 0.85)" }}>
             Agende sua consulta e dê o primeiro passo para mais qualidade de vida
           </p>
           <button

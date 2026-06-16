@@ -9,20 +9,20 @@
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
 
-  /* Primary: Rose poudré */
-  --color-primary: #9B6B7A;
+  /* Primary: Champagne gold */
+  --color-primary: #B8964E;
   --color-primary-foreground: #FFFFFF;
 
   /* Secondary: Ameixa escura */
   --color-secondary: #2D1A28;
   --color-secondary-foreground: #FFFFFF;
 
-  /* Muted: Blush suave */
-  --color-muted: #F7EAF0;
+  /* Muted: Creme marfim */
+  --color-muted: #FAF4EC;
   --color-muted-foreground: #3C3C3C;
 
   /* Accent: Footer e overlays */
-  --color-accent: #3D2535;
+  --color-accent: #1E1608;
   --color-accent-foreground: #FFFFFF;
 
   /* Neutrals & Text */
@@ -36,9 +36,9 @@
   --color-popover-foreground: #212529;
 
   /* Borders */
-  --color-border: #F0E4EA;
-  --color-input: #F0E4EA;
-  --color-ring: #9B6B7A;
+  --color-border: #E8D8C0;
+  --color-input: #E8D8C0;
+  --color-ring: #B8964E;
 
   /* Semantic */
   --color-destructive: 0 84% 60%;
@@ -46,7 +46,7 @@
 
   /* Typography */
   --font-sans: 'Montserrat', sans-serif;
-  --font-heading: 'Montserrat', sans-serif;
+  --font-heading: 'Playfair Display', serif;
   --font-body: 'Montserrat', sans-serif;
 
   /* Spacing & Radius */
@@ -72,6 +72,9 @@
   .text-balance {
     text-wrap: balance;
   }
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
   .glass-nav {
     @apply bg-white/90 backdrop-blur-md border-b border-white/20 shadow-sm supports-[backdrop-filter]:bg-white/80;
   }
@@ -82,9 +85,9 @@
     @apply container mx-auto px-4 md:px-6 max-w-7xl;
   }
   .bg-alt {
-    background-color: #F7EAF0;
+    background-color: #FAF4EC;
   }
   .bg-neutral-gray {
-    background-color: #F0E4EA;
+    background-color: #EDE3D0;
   }
 }
