@@ -16,10 +16,10 @@ export default function Footer() {
               todas as fases da vida feminina.
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "#6B5A48" }}>
-              CRM 134036 • TEGO / FEBRASGO
+              CRM-SP 134.036 / RQE 51.931 • TEGO / FEBRASGO
             </p>
             <p className="text-sm leading-relaxed mt-2" style={{ color: "#6B5A48" }}>
-              Av. Marquês de São Vicente, 2219 — conj. 312<br />
+              Av. Marquês de São Vicente, 2219 — conj. 316<br />
               Água Branca — São Paulo / SP
             </p>
             <a
