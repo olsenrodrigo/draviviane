@@ -104,6 +104,9 @@ export default function Footer() {
             &copy; {currentYear} Dra. Viviane Vendramini. Todos os direitos reservados. Feito com
             <Heart size={13} className="fill-current" style={{ color: "#B8964E" }} />
           </p>
+          <p className="mt-1" style={{ fontSize: "0.72rem", color: "rgba(107,90,72,0.5)" }}>
+            V &amp; V SERVICOS MEDICOS EM GINECOLOGIA E OBSTETRICIA LTDA &nbsp;|&nbsp; CNPJ 01.074.944/0001-76
+          </p>
         </div>
       </div>
     </footer>
