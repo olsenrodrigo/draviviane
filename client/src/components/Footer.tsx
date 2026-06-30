@@ -31,6 +31,14 @@ export default function Footer() {
             >
               (11) 99107-6188
             </a>
+            <br />
+            <a
+              href="mailto:contato@dravivianevendramini.com"
+              className="text-sm mt-1 inline-block transition-colors hover:opacity-70"
+              style={{ color: "#B8964E" }}
+            >
+              contato@dravivianevendramini.com
+            </a>
             <div className="grid grid-cols-2 gap-3 mt-4">
               <a
                 href="https://www.instagram.com/dravivianevendramini?igsh=eWhkc2RyNXV1aGw%3D&utm_source=qr"
