@@ -108,11 +108,11 @@ export default function Footer() {
         </div>
 
         <div className="border-t pt-8 text-center" style={{ borderColor: "rgba(184,150,78,0.2)" }}>
-          <p className="text-sm flex items-center justify-center gap-2" style={{ color: "#8B7355" }}>
+          <p className="text-base flex items-center justify-center gap-2" style={{ color: "#8B7355" }}>
             &copy; {currentYear} Dra. Viviane Vendramini. Todos os direitos reservados. Feito com
-            <Heart size={13} className="fill-current" style={{ color: "#B8964E" }} />
+            <Heart size={14} className="fill-current" style={{ color: "#B8964E" }} />
           </p>
-          <p className="mt-1" style={{ fontSize: "0.72rem", color: "rgba(107,90,72,0.5)" }}>
+          <p className="mt-1 font-bold text-base" style={{ color: "#8B7355" }}>
             V &amp; V SERVICOS MEDICOS EM GINECOLOGIA E OBSTETRICIA LTDA &nbsp;|&nbsp; CNPJ 01.074.944/0001-76
           </p>
         </div>
