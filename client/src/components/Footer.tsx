@@ -1,7 +1,22 @@
 import { Heart } from "lucide-react";
+import { MEDICA, linkWhatsApp } from "@/content/seo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  // Âncoras absolutas ("/#…") para funcionarem também na página de privacidade.
+  const links = [
+    { href: "/#hero", label: "Início" },
+    { href: "/#sinais", label: "Sinais" },
+    { href: "/#caminhos", label: "Três caminhos" },
+    { href: "/#diagnostico", label: "Diagnóstico C.A.S.A.L" },
+    { href: "/#como-funciona", label: "Como funciona" },
+    { href: "/#sobre", label: "Sobre a Dra. Viviane" },
+    { href: "/#equipe", label: "Equipe" },
+    { href: "/#teste", label: "Teste rápido" },
+    { href: "/#duvidas", label: "Dúvidas" },
+    { href: "/#contato", label: "Contato" },
+  ];
 
   return (
     <footer className="py-12 border-t" style={{ backgroundColor: "#FAF4EC", borderColor: "rgba(184,150,78,0.2)" }}>
@@ -12,36 +27,36 @@ export default function Footer() {
               <img src="/logo.png" alt="Dra. Viviane Vendramini" style={{ height: "40px", width: "auto", objectFit: "contain" }} />
             </div>
             <p className="text-base leading-relaxed mb-2" style={{ color: "#3C3C3C" }}>
-              Especialista em saúde da mulher, oferecendo atendimento humanizado e atualizado para
-              todas as fases da vida feminina.
+              Ginecologista em São Paulo especialista em saúde da mulher, sexualidade e saúde do casal.
+              Atendimento humanizado para mulheres, homens e casais, presencial na Água Branca e online.
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "#6B5A48" }}>
-              CRM-SP 134.036 / RQE 51.931 • TEGO / FEBRASGO
+              {`${MEDICA.registro} · TEGO/FEBRASGO`}
             </p>
             <p className="text-sm leading-relaxed mt-2" style={{ color: "#6B5A48" }}>
-              Av. Marquês de São Vicente, 2219 — conj. 316<br />
-              Água Branca — São Paulo / SP
+              Av. Marquês de São Vicente, 2219, conj. 316<br />
+              Água Branca, São Paulo/SP
             </p>
             <a
-              href="https://wa.me/5511991076188"
+              href={linkWhatsApp()}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm mt-1 inline-block transition-colors hover:opacity-70"
-              style={{ color: "#B8964E" }}
+              style={{ color: "#8B6A2E" }}
             >
-              (11) 99107-6188
+              {MEDICA.telefone}
             </a>
             <br />
             <a
-              href="mailto:contato@dravivianevendramini.com"
+              href={`mailto:${MEDICA.email}`}
               className="text-sm mt-1 inline-block transition-colors hover:opacity-70"
-              style={{ color: "#B8964E" }}
+              style={{ color: "#8B6A2E" }}
             >
-              contato@dravivianevendramini.com
+              {MEDICA.email}
             </a>
             <div className="grid grid-cols-2 gap-3 mt-4">
               <a
-                href="https://www.instagram.com/dravivianevendramini?igsh=eWhkc2RyNXV1aGw%3D&utm_source=qr"
+                href={MEDICA.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm transition-opacity hover:opacity-60"
@@ -53,7 +68,7 @@ export default function Footer() {
                 Instagram
               </a>
               <a
-                href="https://www.linkedin.com/in/viviane-vendramini-667b8b34?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                href={MEDICA.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm transition-opacity hover:opacity-60"
@@ -65,7 +80,7 @@ export default function Footer() {
                 LinkedIn
               </a>
               <a
-                href="https://www.youtube.com/@dravivianevendramini"
+                href={MEDICA.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm transition-opacity hover:opacity-60"
@@ -77,7 +92,7 @@ export default function Footer() {
                 YouTube
               </a>
               <a
-                href="https://wa.me/5511991076188"
+                href={linkWhatsApp()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm transition-opacity hover:opacity-60"
@@ -93,16 +108,12 @@ export default function Footer() {
 
           <div>
             <h5 className="font-semibold text-lg mb-4" style={{ color: "#6B4560" }}>Links Rápidos</h5>
-            <ul className="space-y-2 text-sm" style={{ color: "#6B5A48" }}>
-              <li><a href="#hero" className="transition-colors hover:text-[#B8964E]">Início</a></li>
-              <li><a href="#about" className="transition-colors hover:text-[#B8964E]">Sobre</a></li>
-              <li><a href="#services" className="transition-colors hover:text-[#B8964E]">Especialidades</a></li>
-              <li><a href="#treatments" className="transition-colors hover:text-[#B8964E]">Tratamentos</a></li>
-              <li><a href="#differentials" className="transition-colors hover:text-[#B8964E]">Diferenciais</a></li>
-              <li><a href="#locations" className="transition-colors hover:text-[#B8964E]">Consultório</a></li>
-              <li><a href="#faq" className="transition-colors hover:text-[#B8964E]">Depoimentos</a></li>
-              <li><a href="#how-it-works" className="transition-colors hover:text-[#B8964E]">FAQ</a></li>
-              <li><a href="#contact" className="transition-colors hover:text-[#B8964E]">Contato</a></li>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm" style={{ color: "#6B5A48" }}>
+              {links.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="transition-colors hover:text-[#B8964E]">{link.label}</a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -113,7 +124,12 @@ export default function Footer() {
             <Heart size={14} className="fill-current" style={{ color: "#B8964E" }} />
           </p>
           <p className="mt-1 font-bold text-base" style={{ color: "#8B7355" }}>
-            V &amp; V SERVICOS MEDICOS EM GINECOLOGIA E OBSTETRICIA LTDA &nbsp;|&nbsp; CNPJ 01.074.944/0001-76
+            {`${MEDICA.razaoSocial} | CNPJ ${MEDICA.cnpj}`}
+          </p>
+          <p className="mt-2 text-sm">
+            <a href="/politica-de-privacidade" className="underline transition-colors hover:text-[#B8964E]" style={{ color: "#8B7355" }}>
+              Política de Privacidade
+            </a>
           </p>
         </div>
       </div>

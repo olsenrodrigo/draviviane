@@ -1,18 +1,17 @@
 import { motion } from "framer-motion";
-import { Award, BookOpen, GraduationCap, Briefcase, IdCard, Globe } from "lucide-react";
+import { Award, GraduationCap, Briefcase, IdCard } from "lucide-react";
+import { agendar } from "@/lib/navegacao";
 
 export default function About() {
   const credentials = [
-    { icon: GraduationCap, text: "Graduação — Centro Universitário Lusíada (UNILUS)" },
-    { icon: Briefcase, text: "Residência — H.M. Leonor Mendes de Barros" },
-    { icon: Globe, text: "Estágio internacional em Segovia, Itália" },
-    { icon: Award, text: "Especialização em Reprodução Humana" },
-    { icon: BookOpen, text: "Certificações: Sírio Libanês, CETRUS e FMUSP" },
-    { icon: IdCard, text: "CRM-SP 134.036 / RQE 51.931 • TEGO / FEBRASGO" },
+    { icon: GraduationCap, text: "Graduação: Centro Universitário Lusíada (UNILUS)" },
+    { icon: Briefcase, text: "Residência: Hospital Maternidade Leonor Mendes de Barros" },
+    { icon: Award, text: "Certificações: Sírio-Libanês, CETRUS e FMUSP" },
+    { icon: IdCard, text: "CRM-SP 134.036 / RQE 51.931 · TEGO/FEBRASGO" },
   ];
 
   return (
-    <section id="about" className="py-24 bg-white">
+    <section id="sobre" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -25,44 +24,47 @@ export default function About() {
               className="inline-block px-4 py-2 rounded-full mb-6 border"
               style={{ backgroundColor: "rgba(184,150,78,0.08)", borderColor: "rgba(184,150,78,0.2)" }}
             >
-              <span className="text-sm font-medium" style={{ color: "#B8964E" }}>Sobre a Especialista</span>
+              <span className="text-sm font-medium" style={{ color: "#B8964E" }}>Quem sou eu</span>
             </div>
 
             <h2
-              className="font-bold mb-2 leading-tight"
+              className="font-bold mb-6 leading-tight"
               style={{
                 color: "#6B4560",
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(2rem, 4vw, 3.2rem)"
+                fontSize: "clamp(1.8rem, 3.4vw, 2.7rem)"
               }}
             >
-              Dra. Viviane Vendramini
+              Dra. Viviane Vendramini: ginecologista especialista em sexualidade e saúde do casal
             </h2>
 
-            <p className="text-base mb-6 font-medium" style={{ color: "#B8964E", letterSpacing: "0.02em" }}>
-              Ginecologia • Reprodução Humana • Ultrassonografia • Sexualidade
+            <blockquote
+              className="text-xl md:text-2xl italic mb-8 pl-5 border-l-2"
+              style={{ color: "#8B6A2E", fontFamily: "'Playfair Display', serif", borderColor: "#B8964E" }}
+            >
+              "A prevenção é o maior gesto de amor-próprio. E de amor pelo outro."
+            </blockquote>
+
+            <p className="text-base mb-4 leading-relaxed" style={{ color: "#3C3C3C" }}>
+              Sou médica ginecologista e obstetra, com especialização em Reprodução Humana e formação complementar
+              em sexualidade, ultrassonografia, cirurgia minimamente invasiva e psicodrama. Fiz estágio internacional
+              em Segovia e tenho certificações pelo Hospital Sírio-Libanês, CETRUS e FMUSP.
             </p>
 
             <p className="text-base mb-4 leading-relaxed" style={{ color: "#3C3C3C" }}>
-              A <strong style={{ color: "#2D1A28" }}>Dra. Viviane Vendramini</strong> é médica especialista em saúde da mulher, com
-              formação sólida em ginecologia e obstetrícia e atuação focada no cuidado integral feminino.
-            </p>
-
-            <p className="text-base mb-4 leading-relaxed" style={{ color: "#3C3C3C" }}>
-              Realizou estágio internacional em Segovia, Itália, e especializou-se em Reprodução Humana,
-              com atuação complementar em ultrassonografia, sexualidade, cirurgia minimamente invasiva e
-              psicodrama. Acumulou certificações pelo Hospital Sírio Libanês, CETRUS e FMUSP.
+              Em mais de 10 anos de consultório, atendendo mais de mil mulheres, percebi que muitas queixas de "falta
+              de vontade", cansaço e distância no casamento não eram só dela. Eram do casal. Foi daí que nasceu o{" "}
+              <strong style={{ color: "#2D1A28" }}>Diagnóstico C.A.S.A.L</strong>: um jeito de olhar para o corpo e
+              para a relação ao mesmo tempo, com a ciência e o acolhimento que esse tema pede.
             </p>
 
             <p className="text-base mb-8 leading-relaxed" style={{ color: "#3C3C3C" }}>
-              Hoje, com <strong style={{ color: "#2D1A28" }}>mais de 1000 mulheres acompanhadas</strong>, oferece um cuidado personalizado
-              que integra saúde física, emocional e íntima — promovendo bem-estar, autoestima e qualidade de
-              vida em todas as fases da vida feminina.
+              Atendo em consultório na Água Branca, zona oeste de São Paulo, e também online.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-3 mt-8">
+            <ul className="grid sm:grid-cols-2 gap-3">
               {credentials.map((item, index) => (
-                <motion.div
+                <motion.li
                   key={index}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -75,9 +77,19 @@ export default function About() {
                     <item.icon className="w-4 h-4" style={{ color: "#B8964E" }} />
                   </div>
                   <span className="text-sm font-medium" style={{ color: "#212529" }}>{item.text}</span>
-                </motion.div>
+                </motion.li>
               ))}
-            </div>
+            </ul>
+
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => agendar()}
+              className="mt-10 px-8 py-4 text-white rounded-full font-semibold hover:shadow-xl transition-all cursor-pointer"
+              style={{ background: "linear-gradient(135deg, #B8964E 0%, #8B6A2E 100%)" }}
+            >
+              Agendar consulta
+            </motion.button>
           </motion.div>
 
           <motion.div
@@ -90,61 +102,15 @@ export default function About() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-sm w-full">
               <img
                 src="/draviviane_ajustado.png"
-                alt="Dra. Viviane Vendramini"
+                alt="Dra. Viviane Vendramini, ginecologista especialista em sexualidade do casal em São Paulo"
                 className="w-full object-cover"
+                loading="lazy"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-56 h-56 rounded-3xl -z-10" style={{ backgroundColor: "rgba(184,150,78,0.1)" }} />
             <div className="absolute -top-6 -left-6 w-40 h-40 rounded-full -z-10" style={{ backgroundColor: "rgba(184,150,78,0.07)" }} />
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 pt-16 border-t"
-          style={{ borderColor: "rgba(184,150,78,0.2)" }}
-        >
-          {[
-            { value: "+1000 pacientes", label: "atendidas com cuidado personalizado" },
-            { value: "10+ anos", label: "de formação e prática especializada" },
-            { value: "5+ áreas", label: "de especialização em saúde feminina" },
-          ].map((item, index) => (
-            <div key={index} className="text-center">
-              <div
-                className="text-2xl md:text-3xl font-bold mb-2"
-                style={{ color: "#6B4560", fontFamily: "'Playfair Display', serif" }}
-              >
-                {item.value}
-              </div>
-              <div className="text-base" style={{ color: "#3C3C3C" }}>{item.label}</div>
-            </div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <blockquote
-            className="text-2xl md:text-3xl font-medium italic max-w-3xl mx-auto mb-8"
-            style={{ color: "#6B4560", fontFamily: "'Playfair Display', serif" }}
-          >
-            "A prevenção é o maior gesto de amor-próprio."
-          </blockquote>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-4 text-white rounded-full font-semibold hover:shadow-xl transition-all cursor-pointer"
-            style={{ background: "linear-gradient(135deg, #B8964E 0%, #8B6A2E 100%)" }}
-          >
-            Agende sua consulta
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

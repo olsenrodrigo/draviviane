@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle2, Loader2, MapPin, Instagram } from "lucide-react";
+import { Send, CheckCircle2, Loader2, MapPin, Instagram, ShieldCheck } from "lucide-react";
+import { EVENTO_MENSAGEM_CONTATO } from "@/lib/navegacao";
+import { MEDICA, linkWhatsApp } from "@/content/seo";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", message: "" });
+  const [autorizado, setAutorizado] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  // Botões dos caminhos e do teste chegam aqui com a mensagem já escrita.
+  useEffect(() => {
+    const preencher = (e: Event) => {
+      const mensagem = (e as CustomEvent<string>).detail;
+      setStatus("idle");
+      setFormData((f) => ({ ...f, message: mensagem }));
+    };
+    window.addEventListener(EVENTO_MENSAGEM_CONTATO, preencher);
+    return () => window.removeEventListener(EVENTO_MENSAGEM_CONTATO, preencher);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.email || !formData.message) return;
+    if (!formData.name || !formData.phone || !formData.email || !formData.message || !autorizado) return;
 
     setStatus("loading");
     try {
@@ -20,13 +34,14 @@ export default function Contact() {
       if (!res.ok) throw new Error("Erro ao enviar");
       setStatus("success");
       setFormData({ name: "", phone: "", email: "", message: "" });
+      setAutorizado(false);
     } catch {
       setStatus("error");
     }
   };
 
   return (
-    <section id="contact" className="py-24" style={{ backgroundColor: "#EDE3D0" }}>
+    <section id="contato" className="py-24" style={{ backgroundColor: "#EDE3D0" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -35,15 +50,19 @@ export default function Contact() {
           className="text-center mb-12"
         >
           <div className="inline-block px-4 py-2 rounded-full mb-6 border" style={{ backgroundColor: "rgba(184,150,78,0.10)", borderColor: "rgba(184,150,78,0.25)" }}>
-            <span className="text-sm font-medium" style={{ color: "#8B6A2E" }}>Entre em Contato</span>
+            <span className="text-sm font-medium" style={{ color: "#8B6A2E" }}>Contato e agendamento</span>
           </div>
 
-          <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: "#212529" }}>
-            Agende sua consulta
-          </h3>
+          <h2
+            className="font-bold mb-6 leading-tight"
+            style={{ color: "#6B4560", fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.9rem, 3.6vw, 2.9rem)" }}
+          >
+            Agende sua consulta com a Dra. Viviane Vendramini
+          </h2>
 
-          <p className="text-xl max-w-3xl mx-auto" style={{ color: "#3C3C3C" }}>
-            Preencha os dados e entraremos em contato
+          <p className="text-base md:text-lg max-w-3xl mx-auto" style={{ color: "#3C3C3C" }}>
+            Preencha os dados e nossa equipe entra em contato, ou fale direto pelo WhatsApp. Atendimento presencial
+            na Água Branca (zona oeste de São Paulo) e online.
           </p>
         </motion.div>
 
@@ -62,10 +81,19 @@ export default function Contact() {
                 <div>
                   <p className="font-bold mb-1" style={{ color: "#212529" }}>Localização</p>
                   <p className="text-sm leading-relaxed" style={{ color: "#3C3C3C" }}>
-                    Av. Marquês de São Vicente, 2219 — conj. 316<br />
-                    Água Branca — São Paulo / SP<br />
-                    <span style={{ color: "#B8964E" }}>Presencial e Online</span>
+                    Av. Marquês de São Vicente, 2219, conj. 316<br />
+                    Água Branca, São Paulo/SP<br />
+                    <span style={{ color: "#8B6A2E" }}>Presencial e online</span>
                   </p>
+                  <a
+                    href="https://maps.google.com/?q=Av+Marques+de+Sao+Vicente+2219+Agua+Branca+Sao+Paulo+SP"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs mt-2 inline-block hover:underline"
+                    style={{ color: "#8B6A2E" }}
+                  >
+                    Ver no Google Maps →
+                  </a>
                 </div>
               </div>
             </div>
@@ -81,16 +109,16 @@ export default function Contact() {
                   <p className="font-bold mb-1" style={{ color: "#212529" }}>Agendamento</p>
                   <p className="text-sm" style={{ color: "#3C3C3C" }}>
                     <a
-                      href="https://wa.me/5511991076188"
+                      href={linkWhatsApp()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:underline"
-                      style={{ color: "#B8964E" }}
+                      className="hover:underline font-semibold"
+                      style={{ color: "#8B6A2E" }}
                     >
-                      (11) 99107-6188
+                      {MEDICA.telefone}
                     </a>
                     <br />
-                    Via WhatsApp ou formulário
+                    WhatsApp ou formulário
                   </p>
                 </div>
               </div>
@@ -104,11 +132,11 @@ export default function Contact() {
                 <div>
                   <p className="font-bold mb-1" style={{ color: "#212529" }}>Instagram</p>
                   <a
-                    href="https://www.instagram.com/dravivianevendramini?igsh=eWhkc2RyNXV1aGw%3D&utm_source=qr"
+                    href={MEDICA.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm hover:underline"
-                    style={{ color: "#B8964E" }}
+                    style={{ color: "#8B6A2E" }}
                   >
                     @dravivianevendramini
                   </a>
@@ -127,7 +155,7 @@ export default function Contact() {
               {status === "success" ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <CheckCircle2 className="w-16 h-16 text-green-500 mb-4" />
-                  <h4 className="text-xl font-bold mb-2" style={{ color: "#2D1A28" }}>Mensagem Enviada!</h4>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: "#2D1A28" }}>Mensagem enviada!</h3>
                   <p className="mb-6" style={{ color: "#3C3C3C" }}>
                     Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.
                   </p>
@@ -191,9 +219,37 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:border-transparent transition-all resize-none outline-none"
                       style={{ borderColor: "rgba(184,150,78,0.25)" }}
-                      placeholder="Como posso te ajudar?"
+                      placeholder="Conte em poucas palavras o que você procura: para o casal, para você ou para ele."
                     />
                   </div>
+
+                  <div
+                    className="flex items-start gap-3 rounded-xl p-4 text-sm"
+                    style={{ backgroundColor: "rgba(184,150,78,0.08)", color: "#3C3C3C" }}
+                  >
+                    <ShieldCheck className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#8B6A2E" }} />
+                    <p className="text-sm leading-relaxed">
+                      Seus dados são usados só para retornarmos o contato e não são compartilhados. Não é preciso
+                      descrever sintomas nem enviar exames por aqui: isso fica para a consulta.
+                    </p>
+                  </div>
+
+                  <label className="flex items-start gap-3 text-sm cursor-pointer" style={{ color: "#3C3C3C" }}>
+                    <input
+                      type="checkbox"
+                      required
+                      checked={autorizado}
+                      onChange={(e) => setAutorizado(e.target.checked)}
+                      className="mt-1 w-4 h-4 flex-shrink-0 accent-[#B8964E]"
+                    />
+                    <span>
+                      Autorizo a equipe da Dra. Viviane Vendramini a entrar em contato pelos dados informados, conforme a{" "}
+                      <a href="/politica-de-privacidade" target="_blank" className="underline" style={{ color: "#8B6A2E" }}>
+                        Política de Privacidade
+                      </a>
+                      {" "}(LGPD).
+                    </span>
+                  </label>
 
                   {status === "error" && (
                     <p className="text-red-500 text-sm">Ocorreu um erro ao enviar. Tente novamente.</p>
@@ -218,6 +274,25 @@ export default function Contact() {
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto mt-10 rounded-2xl overflow-hidden shadow-lg border"
+          style={{ borderColor: "rgba(184,150,78,0.18)" }}
+        >
+          <iframe
+            title="Mapa do consultório da Dra. Viviane Vendramini na Água Branca, São Paulo"
+            src="https://maps.google.com/maps?q=Av+Marques+de+Sao+Vicente+2219+Agua+Branca+Sao+Paulo+SP&output=embed"
+            width="100%"
+            height="360"
+            style={{ border: 0, display: "block" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </motion.div>
       </div>
     </section>
   );

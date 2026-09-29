@@ -1,15 +1,36 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Sinais from "@/components/Sinais";
+import Caminhos from "@/components/Caminhos";
+import Diagnostico from "@/components/Diagnostico";
+import ComoFunciona from "@/components/ComoFunciona";
 import About from "@/components/About";
-import Services from "@/components/Services";
-import Treatments from "@/components/Treatments";
-import Differentials from "@/components/Differentials";
-import Locations from "@/components/Locations";
+import Equipe from "@/components/Equipe";
+import Depoimentos from "@/components/Depoimentos";
+import OutrosCuidados from "@/components/OutrosCuidados";
+import Teste from "@/components/Teste";
 import FAQ from "@/components/FAQ";
-import HowItWorks from "@/components/HowItWorks";
 import Contact from "@/components/Contact";
+import CtaFinal from "@/components/CtaFinal";
 import Footer from "@/components/Footer";
+import WhatsAppFlutuante from "@/components/WhatsAppFlutuante";
+
+// Ordem das seções = ordem da copy v2 ("Diagnóstico C.A.S.A.L", foco em casais).
+const SECOES = [
+  "hero",
+  "sinais",
+  "caminhos",
+  "diagnostico",
+  "como-funciona",
+  "sobre",
+  "equipe",
+  "depoimentos",
+  "outros-cuidados",
+  "teste",
+  "duvidas",
+  "contato",
+];
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -23,7 +44,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const sections = ["hero", "about", "services", "treatments", "differentials", "locations", "faq", "how-it-works", "contact"];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -35,7 +55,7 @@ export default function Home() {
       { threshold: 0.3 }
     );
 
-    sections.forEach((id) => {
+    SECOES.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
@@ -44,20 +64,25 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-clip">
       <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
       <main>
         <Hero scrollToSection={scrollToSection} />
+        <Sinais />
+        <Caminhos />
+        <Diagnostico />
+        <ComoFunciona />
         <About />
-        <Services />
-        <Treatments />
-        <Differentials />
-        <Locations />
+        <Equipe />
+        <Depoimentos />
+        <OutrosCuidados />
+        <Teste />
         <FAQ />
-        <HowItWorks />
         <Contact />
+        <CtaFinal />
       </main>
       <Footer />
+      <WhatsAppFlutuante />
     </div>
   );
 }

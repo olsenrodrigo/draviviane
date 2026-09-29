@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Calendar, Users, Heart, Sparkles } from "lucide-react";
+import { Calendar, ClipboardCheck, Users, Heart, Route, MapPin } from "lucide-react";
+import { irPara } from "@/lib/navegacao";
 
 interface HeroProps {
   scrollToSection?: (section: string) => void;
@@ -75,14 +76,15 @@ export default function Hero({ scrollToSection }: HeroProps) {
     if (scrollToSection) {
       scrollToSection(id);
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      irPara(id);
     }
   };
 
   const stats = [
-    { icon: Users, value: "+1000", label: "pacientes" },
-    { icon: Heart, value: "10+", label: "anos" },
-    { icon: Sparkles, value: "5+", label: "especialidades" },
+    { icon: Users, value: "+1000", label: "mulheres e casais acompanhados" },
+    { icon: Heart, value: "10+ anos", label: "de prática em saúde da mulher e reprodução humana" },
+    { icon: Route, value: "3 caminhos", label: "mulher, homem ou casal" },
+    { icon: MapPin, value: "Presencial e online", label: "Água Branca, zona oeste de SP" },
   ];
 
   return (
@@ -126,89 +128,103 @@ export default function Hero({ scrollToSection }: HeroProps) {
 
       {/* ── Conteúdo principal ── */}
       <div className="flex-1 flex items-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-8">
-          <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-200px)]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
+          <div className="grid lg:grid-cols-2 gap-10 items-center min-h-[calc(100vh-200px)]">
 
             {/* Esquerda: texto */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, ease: "easeOut" }}
-              className="flex flex-col justify-center"
+              className="flex flex-col justify-center relative z-10"
             >
-              <motion.div
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.05 }}
+                className="text-xs sm:text-sm font-semibold uppercase mb-5"
+                style={{ color: "#B8964E", letterSpacing: "0.14em" }}
+              >
+                Ginecologista em São Paulo · Sexualidade e Saúde do Casal
+              </motion.p>
+
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
+                className="leading-tight mb-6 font-bold"
+                style={{ fontFamily: "'Playfair Display', serif", color: "#6B4560", fontSize: "clamp(2.2rem, 4.6vw, 4rem)", lineHeight: 1.12 }}
               >
-                <h1 className="leading-tight mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  <span className="block font-bold" style={{ color: "#6B4560", fontSize: "clamp(2.8rem, 6vw, 5.5rem)", lineHeight: 1.1 }}>
-                    Saúde Feminina
-                  </span>
-                  <span className="block font-bold" style={{ color: "#B8964E", fontSize: "clamp(2.8rem, 6vw, 5.5rem)", lineHeight: 1.1 }}>
-                    com Propósito
-                  </span>
-                </h1>
-              </motion.div>
+                Quando o desejo esfria no casamento,{" "}
+                <span style={{ color: "#B8964E" }}>existe causa. E existe cuidado.</span>
+              </motion.h1>
 
-              <motion.div
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.25 }}
+                className="text-base md:text-lg mb-8 leading-relaxed"
+                style={{ color: "#3C3C3C" }}
               >
-                <p className="text-lg font-semibold mb-1" style={{ color: "#2D1A28" }}>
-                  Dra Viviane Vendramini — Ginecologista
-                </p>
-                <p className="text-base mb-8 italic leading-relaxed" style={{ color: "#6B5A48", fontFamily: "'Playfair Display', serif" }}>
-                  Cuidado integral, acolhedor e personalizado<br />
-                  em todas as fases da sua jornada.
-                </p>
-              </motion.div>
+                Falta de libido, cansaço, dor na relação e aquela distância que foi chegando sem ninguém
+                perceber podem ter origem hormonal, metabólica e física, nela e nele. O{" "}
+                <strong style={{ color: "#2D1A28" }}>Diagnóstico C.A.S.A.L</strong> investiga corpo, hormônios e
+                vínculo do casal numa mesma jornada, com a Dra. Viviane Vendramini e equipe multidisciplinar.
+              </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 mb-10"
+                className="flex flex-col sm:flex-row gap-4 mb-4"
               >
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
-                  onClick={() => goTo("contact")}
-                  className="flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-base transition-all cursor-pointer border-2"
+                  onClick={() => goTo("contato")}
+                  className="flex items-center justify-center gap-3 px-7 py-4 rounded-xl font-semibold text-base text-white transition-all cursor-pointer"
                   style={{
-                    borderColor: "#B8964E",
-                    color: "#B8964E",
-                    backgroundColor: "transparent",
-                    boxShadow: "0 2px 12px rgba(184,150,78,0.12)"
+                    background: "linear-gradient(135deg, #B8964E 0%, #8B6A2E 100%)",
+                    boxShadow: "0 6px 20px rgba(184,150,78,0.28)"
                   }}
                 >
                   <Calendar size={20} />
-                  Agendar Consulta
+                  Quero cuidar da nossa relação
                 </motion.button>
 
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
-                  onClick={() => goTo("about")}
-                  className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-medium text-base transition-all cursor-pointer"
-                  style={{ color: "#6B5A48", backgroundColor: "rgba(184,150,78,0.08)" }}
+                  onClick={() => goTo("teste")}
+                  className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-semibold text-base transition-all cursor-pointer border-2"
+                  style={{ borderColor: "#B8964E", color: "#8B6A2E", backgroundColor: "rgba(255,255,255,0.6)" }}
                 >
-                  Conheça a Dra. Viviane
+                  <ClipboardCheck size={20} />
+                  Fazer o teste de 1 minuto
                 </motion.button>
               </motion.div>
 
-              {/* Stats */}
-              <motion.div
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="text-sm mb-10"
+                style={{ color: "#6B5A48" }}
+              >
+                Para casais, para mulheres e para homens · Presencial na Água Branca (SP) e online
+              </motion.p>
+
+              {/* Indicadores */}
+              <motion.ul
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.55 }}
-                className="flex gap-3"
+                className="grid grid-cols-2 gap-3"
               >
                 {stats.map((stat, i) => (
-                  <div
+                  <li
                     key={i}
-                    className="flex items-center gap-3 px-4 py-3 rounded-2xl flex-1 border"
+                    className="flex items-start gap-3 px-4 py-3 rounded-2xl border"
                     style={{
                       backgroundColor: "rgba(255,255,255,0.7)",
                       borderColor: "rgba(184,150,78,0.18)",
@@ -219,12 +235,12 @@ export default function Hero({ scrollToSection }: HeroProps) {
                       <stat.icon size={16} style={{ color: "#B8964E" }} />
                     </div>
                     <div>
-                      <div className="font-bold text-lg leading-none" style={{ color: "#2D1A28" }}>{stat.value}</div>
-                      <div className="text-xs mt-0.5" style={{ color: "#8B7355" }}>{stat.label}</div>
+                      <div className="font-bold text-base leading-tight" style={{ color: "#2D1A28" }}>{stat.value}</div>
+                      <div className="text-xs mt-0.5 leading-snug" style={{ color: "#8B7355" }}>{stat.label}</div>
                     </div>
-                  </div>
+                  </li>
                 ))}
-              </motion.div>
+              </motion.ul>
             </motion.div>
 
             {/* Direita: foto */}
@@ -245,7 +261,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                 />
                 <img
                   src="/draviviane_hero.png"
-                  alt="Dra. Viviane Vendramini"
+                  alt="Dra. Viviane Vendramini, ginecologista especialista em sexualidade do casal em São Paulo"
                   className="relative w-full rounded-3xl"
                   style={{
                     maxHeight: "580px",

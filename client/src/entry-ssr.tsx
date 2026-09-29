@@ -31,6 +31,7 @@ export function renderizarRota(path: string) {
 
   const url = urlDaRota(path);
   const imagem = `${ORIGIN}/opengraph.jpg`;
+  const tituloSocial = dados.ogTitle ?? dados.title;
 
   const cabeca = [
     `<title>${escapar(dados.title)}</title>`,
@@ -41,7 +42,7 @@ export function renderizarRota(path: string) {
     `<link rel="canonical" href="${url}" />`,
     `<meta name="geo.region" content="BR-SP" />`,
     `<meta name="geo.placename" content="São Paulo" />`,
-    `<meta property="og:title" content="${escapar(dados.title)}" />`,
+    `<meta property="og:title" content="${escapar(tituloSocial)}" />`,
     `<meta property="og:description" content="${escapar(dados.description)}" />`,
     `<meta property="og:url" content="${url}" />`,
     `<meta property="og:type" content="website" />`,
@@ -51,10 +52,10 @@ export function renderizarRota(path: string) {
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="twitter:title" content="${escapar(dados.title)}" />`,
+    `<meta name="twitter:title" content="${escapar(tituloSocial)}" />`,
     `<meta name="twitter:description" content="${escapar(dados.description)}" />`,
     `<meta name="twitter:image" content="${imagem}" />`,
-    `<script type="application/ld+json">${JSON.stringify(grafoJsonLd()).replace(/</g, "\\u003c")}</script>`,
+    `<script type="application/ld+json">${JSON.stringify(grafoJsonLd(path)).replace(/</g, "\\u003c")}</script>`,
   ].join("\n    ");
 
   return { corpo, cabeca };

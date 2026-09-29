@@ -1,104 +1,44 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import SecaoTitulo from "@/components/SecaoTitulo";
+import { faq } from "@/content/seo";
 
+// Mesmo conteúdo do FAQPage no JSON-LD (content/seo.ts). `<details>` mantém as
+// respostas no HTML pré-renderizado — um acordeão que só monta a resposta ao
+// clicar esconderia o texto de quem não executa JavaScript.
 export default function FAQ() {
-  const testimonials = [
-    {
-      text: "Tenho o privilégio de ser acompanhada pela Dra. Viviane há 13 anos. Sempre recebi um atendimento excepcional. Sua competência, profissionalismo e atenção aos detalhes fazem toda a diferença. Além do conhecimento técnico, ela tem um olhar humano e acolhedor, transmitindo confiança e segurança em cada consulta. Recomendo sem ressalvas!",
-      name: "Tahiná Di Sessa Ribeiro",
-      detail: "Paciente há 13 anos",
-    },
-    {
-      text: "Me passou confiança desde a primeira consulta. A Dra. Vivi é muito atenciosa, é aquela profissional que te explica tudo direitinho, prestativa e muito acolhedora.",
-      name: "Priscilla Ramalho",
-      detail: "Paciente",
-    },
-    {
-      text: "Fui muito bem atendida pela Dra. Vivi, muito acolhedora. Estou fazendo meu processo de emagrecimento com ela e já perdi 5kg. Estou muito feliz que estou tendo resultado e acolhimento. Ela é muito atenciosa e atualizada!",
-      name: "Laura Costa",
-      detail: "Programa de emagrecimento",
-    },
-  ];
-
   return (
-    <section id="faq" className="py-24" style={{ backgroundColor: "#FAF4EC" }}>
+    <section id="duvidas" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <SecaoTitulo selo="Dúvidas frequentes" titulo="Dúvidas sobre saúde sexual e o diagnóstico do casal" />
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="max-w-3xl mx-auto space-y-3"
         >
-          <div className="inline-block px-4 py-2 rounded-full mb-6 border" style={{ backgroundColor: "rgba(184,150,78,0.08)", borderColor: "rgba(184,150,78,0.2)" }}>
-            <span className="text-sm font-medium" style={{ color: "#B8964E" }}>Depoimentos</span>
-          </div>
-
-          <h3 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#212529" }}>
-            O que dizem nossas pacientes
-          </h3>
-
-          <p className="text-lg max-w-3xl mx-auto" style={{ color: "#3C3C3C" }}>
-            Histórias reais de quem confiou sua saúde à Dra. Viviane
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border relative"
-              style={{ borderColor: "rgba(184,150,78,0.18)" }}
+          {faq.map((item, index) => (
+            <details
+              key={item.pergunta}
+              open={index === 0}
+              className="group rounded-2xl border px-6 py-5 [&_summary::-webkit-details-marker]:hidden"
+              style={{ borderColor: "rgba(184,150,78,0.22)", backgroundColor: "#FDFAF5" }}
             >
-              <Quote className="w-8 h-8 mb-4 opacity-25" style={{ color: "#B8964E" }} />
-
-              <p className="text-base leading-relaxed mb-6" style={{ color: "#3C3C3C" }}>
-                "{item.text}"
+              <summary className="flex items-center justify-between gap-4 cursor-pointer list-none">
+                <h3 className="text-base md:text-lg font-semibold" style={{ color: "#2D1A28" }}>
+                  {item.pergunta}
+                </h3>
+                <ChevronDown
+                  className="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180"
+                  style={{ color: "#B8964E" }}
+                />
+              </summary>
+              <p className="mt-4 text-sm md:text-base leading-relaxed" style={{ color: "#3C3C3C" }}>
+                {item.resposta}
               </p>
-
-              <div className="flex items-center gap-1 mb-3">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-4 h-4 fill-current" style={{ color: "#B8964E" }} />
-                ))}
-              </div>
-
-              <div>
-                <p className="font-semibold text-sm" style={{ color: "#212529" }}>{item.name}</p>
-                <p className="text-xs" style={{ color: "#B8964E" }}>{item.detail}</p>
-              </div>
-            </motion.div>
+            </details>
           ))}
-        </div>
-
-        {/* CTA Final */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20 rounded-3xl p-12 text-center text-white"
-          style={{ background: "linear-gradient(135deg, #B8964E 0%, #2D1A28 100%)" }}
-        >
-          <h4 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-            Comece agora a cuidar da sua saúde com quem entende você
-          </h4>
-          <div className="flex flex-wrap justify-center gap-4 mb-4 text-lg" style={{ color: "#FAF4EC" }}>
-            <span>Atendimento presencial e online</span>
-            <span>|</span>
-            <span>São Paulo / SP</span>
-          </div>
-          <p className="text-base mb-8" style={{ color: "rgba(250, 244, 236, 0.85)" }}>
-            Agende sua consulta e dê o primeiro passo para mais qualidade de vida
-          </p>
-          <button
-            className="px-8 py-4 bg-white rounded-full font-semibold hover:bg-opacity-90 transition-colors cursor-pointer"
-            style={{ color: "#2D1A28" }}
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            Agendar consulta
-          </button>
         </motion.div>
       </div>
     </section>

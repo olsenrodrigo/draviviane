@@ -67,6 +67,8 @@ export async function gerar() {
     html = html
       .replace(/<title>[\s\S]*?<\/title>\s*/i, "")
       .replace(/[ \t]*<meta\s+name="description"[\s\S]*?\/?>\s*/i, "")
+      .replace(/[ \t]*<meta\s+name="keywords"[\s\S]*?\/?>\s*/i, "")
+      .replace(/[ \t]*<script\s+type="application\/ld\+json">[\s\S]*?<\/script>\s*/gi, "")
       .replace(/[ \t]*<link\s+rel="canonical"[^>]*>\s*/i, "")
       .replace(/[ \t]*<meta\s+(property="og:|name="twitter:)[\s\S]*?\/?>\s*/gi, "")
       .replace("</head>", `  ${cabeca}\n  </head>`);
