@@ -91,3 +91,62 @@
     background-color: #EDE3D0;
   }
 }
+
+/* ── Abertura (Hero): fotos com fusão na borda, zoom lento e entrada em cascata ── */
+.hero-fotos {
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+}
+@media (min-width: 1024px) {
+  .hero-fotos {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 42%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 42%);
+  }
+}
+
+@keyframes hero-kenburns {
+  from { transform: scale(1.14); }
+  to { transform: scale(1.02); }
+}
+.hero-kb {
+  animation: hero-kenburns 9s cubic-bezier(0.2, 0.6, 0.35, 1) both;
+  will-change: transform;
+}
+
+@keyframes hero-progresso {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+.hero-progresso {
+  animation-name: hero-progresso;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+/* Entrada do primeiro slide feita em CSS: roda já no HTML pré-renderizado,
+   antes de o JavaScript carregar. */
+@keyframes hero-entrada {
+  from { opacity: 0; transform: translateY(26px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.hero-entrada {
+  animation: hero-entrada 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Cartões com foto de fundo (seção "Caminhos") */
+.caminho-foto {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .caminho-foto {
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-kb,
+  .hero-entrada {
+    animation: none;
+  }
+  .group:hover .caminho-foto {
+    transform: none;
+  }
+}

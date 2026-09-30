@@ -99,12 +99,17 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative flex justify-center"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-sm w-full">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-md w-full">
               <img
-                src="/draviviane_ajustado.png"
+                src="/fotos/sobre-dra-1100.webp"
+                srcSet="/fotos/sobre-dra-700.webp 700w, /fotos/sobre-dra-1100.webp 1100w"
+                sizes="(min-width: 1024px) 400px, 90vw"
+                width={1100}
+                height={1467}
                 alt="Dra. Viviane Vendramini, ginecologista especialista em sexualidade do casal em São Paulo"
-                className="w-full object-cover"
+                className="w-full h-auto object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-56 h-56 rounded-3xl -z-10" style={{ backgroundColor: "rgba(184,150,78,0.1)" }} />

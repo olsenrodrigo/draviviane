@@ -13,6 +13,8 @@ export default function Caminhos() {
         "Hormônios, corpo, metabolismo e vínculo investigados nos dois ao mesmo tempo, com um plano de cuidado em comum. Para casais que querem reacender a intimidade e entender por que o desejo mudou.",
       botao: "Quero o Diagnóstico do casal",
       mensagem: "Olá! Tenho interesse no Diagnóstico C.A.S.A.L para o casal.",
+      foto: "/fotos/caminho-casal-900.webp",
+      posicao: "50% 30%",
       destaque: true,
     },
     {
@@ -23,6 +25,8 @@ export default function Caminhos() {
         "Baixa libido, dor na relação, alterações hormonais, menopausa e fertilidade, cuidadas no seu tempo, com escuta e sem julgamento.",
       botao: "Quero minha consulta",
       mensagem: "Olá! Gostaria de agendar uma consulta de saúde íntima e sexualidade feminina.",
+      foto: "/fotos/caminho-mulher-900.webp",
+      posicao: "50% 22%",
       destaque: false,
     },
     {
@@ -33,6 +37,8 @@ export default function Caminhos() {
         "Avaliação hormonal e urológica com a equipe parceira: testosterona, energia, desejo e desempenho, com discrição.",
       botao: "Quero saber mais",
       mensagem: "Olá! Gostaria de saber mais sobre a avaliação de vitalidade e saúde sexual masculina.",
+      foto: "/fotos/caminho-homem-900.webp",
+      posicao: "50% 20%",
       destaque: false,
     },
   ];
@@ -54,16 +60,35 @@ export default function Caminhos() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex flex-col rounded-3xl p-8 border"
+              className="group relative isolate overflow-hidden flex flex-col rounded-3xl p-8 pt-44 border min-h-[560px]"
               style={
                 caminho.destaque
-                  ? { background: "linear-gradient(160deg, #6B4560 0%, #2D1A28 100%)", borderColor: "transparent", boxShadow: "0 18px 40px rgba(45,26,40,0.22)" }
+                  ? { backgroundColor: "#2D1A28", borderColor: "transparent", boxShadow: "0 18px 40px rgba(45,26,40,0.22)" }
                   : { backgroundColor: "#FFFFFF", borderColor: "rgba(184,150,78,0.2)" }
               }
             >
+              {/* Foto de fundo com véu na cor do cartão: aparece no alto e some atrás do texto */}
+              <img
+                src={caminho.foto}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                className="caminho-foto absolute inset-0 -z-20 w-full h-full object-cover"
+                style={{ objectPosition: caminho.posicao }}
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 -z-10"
+                style={{
+                  background: caminho.destaque
+                    ? "linear-gradient(180deg, rgba(107,69,96,0.35) 0%, rgba(74,45,66,0.78) 38%, rgba(45,26,40,0.96) 62%, #2D1A28 100%)"
+                    : "linear-gradient(180deg, rgba(250,244,236,0.25) 0%, rgba(255,255,255,0.8) 38%, rgba(255,255,255,0.96) 60%, #FFFFFF 100%)",
+                }}
+              />
               <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-                style={{ backgroundColor: caminho.destaque ? "rgba(255,255,255,0.12)" : "rgba(184,150,78,0.12)" }}
+                style={{ backgroundColor: caminho.destaque ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.9)", backdropFilter: "blur(6px)", boxShadow: caminho.destaque ? undefined : "0 4px 14px rgba(184,150,78,0.18)" }}
               >
                 <caminho.icon className="w-6 h-6" style={{ color: caminho.destaque ? "#E6CF9F" : "#B8964E" }} />
               </div>
